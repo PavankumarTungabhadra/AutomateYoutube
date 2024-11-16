@@ -12,18 +12,14 @@ WebDriver driver;
 		
 	}
 	public void GoTo() {
-		driver.get("https://www.netflix.com/login");
+		driver.get("https://www.youtube.com");
 	}
 	public SubPage DoMainPageActions() throws InterruptedException
 	{
-		//Thread.sleep(5000);
-		//GoTo();
-		System.out.println(driver.getTitle());
+		Thread.sleep(5000);
 		return new SubPage(driver);
 		
 	}
-	
-	
 	
 
 }

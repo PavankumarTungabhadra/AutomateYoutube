@@ -10,7 +10,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -32,11 +31,8 @@ public class BaseTest {
 		String BrowserName = prop.getProperty("browser");
 		if (BrowserName.equalsIgnoreCase("chrome"))
 		{
-			
 			WebDriverManager.chromedriver().setup();
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--remote-allow-origin=*");
-			driver=new ChromeDriver(options);
+			driver=new ChromeDriver();
 			
 		}
 		if (BrowserName.equalsIgnoreCase("edge")) 
@@ -51,11 +47,9 @@ public class BaseTest {
 	}
 	
 	@BeforeTest
-	public MainPage LaunchApplication() throws IOException {
+	public void LaunchApplication() throws IOException {
 		driver=Initilizer();
 		mainPage=new MainPage(driver);
-		mainPage.GoTo();
-		return mainPage;
 		
 	}
 	@AfterTest

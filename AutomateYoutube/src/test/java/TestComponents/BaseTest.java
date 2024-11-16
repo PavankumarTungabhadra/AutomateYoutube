@@ -47,9 +47,11 @@ public class BaseTest {
 	}
 	
 	@BeforeTest
-	public void LaunchApplication() throws IOException {
+	public MainPage LaunchApplication() throws IOException {
 		driver=Initilizer();
 		mainPage=new MainPage(driver);
+		mainPage.GoTo();
+		return mainPage;
 		
 	}
 	@AfterTest
